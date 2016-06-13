@@ -1,0 +1,188 @@
+@blue: #0190d4;
+
+:global {
+	@font-face {font-family: "dakecrm";
+		src: url("../font/iconfont.eot"); /* IE9*/
+		src: url("../font/iconfont.eot") format("embedded-opentype"), /* IE6-IE8 */
+		url("../font/iconfont.woff") format("woff"), /* chrome, firefox */
+		url("../font/iconfont.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+		url("../font/iconfont.svg#dakecrm") format("svg"); /* iOS 4.1- */
+	}
+
+	html, body {
+		padding: 0;
+		margin: 0;
+	}
+
+	@logoWidth: 240px;
+	@pageTopHeight: 60px;
+	@navWidth: 190px;
+
+	body {
+		background: #fff;
+		display: flex;
+		min-height: 100vh;
+		min-width: @logoWidth + 800px + 220px;
+		flex-direction: column;
+		font-family: "Microsoft Yahei";
+		font-size: 12px;
+		line-height: 150%;
+	}
+
+	#topBar {
+		height: 25px;
+		background: #2c2f30;
+	}
+
+	#pageTop {
+		height: @pageTopHeight;
+		background: @blue;
+		display: flex;
+
+		.logo {
+			float: left;
+			width: @logoWidth;
+			height: @pageTopHeight;
+			background: url("../images/logo.png") center center no-repeat;
+			a {
+				width: @logoWidth;
+				height: @pageTopHeight;
+				display: block;
+			}
+		}
+
+		#topNavBox {
+			float: left;
+			height: @pageTopHeight;
+			flex-grow: 1;
+
+			.topNav{
+				height: @pageTopHeight;
+			}
+
+			ul {
+				height: @pageTopHeight;
+				padding: 0 2px 0 0;
+				margin: 0;
+				float: left;
+				background: url("../images/top_nav_bg.gif") right top no-repeat;
+
+				.hover {
+					background: #006599 url("../images/top_nav_bg.gif") left top no-repeat;
+				}
+
+				li{
+					display: block;
+					float: left;
+					height: @pageTopHeight;
+					background: url("../images/top_nav_bg.gif") left top no-repeat;
+
+					a {
+						display: block;
+						height: @pageTopHeight;
+						padding: 0 26px;
+						font-size: 12px;
+						color: #fff;
+						text-decoration: none;
+						text-align: center;
+
+						strong {
+							display: block;
+							font-weight: normal;
+							text-align: center;
+						}
+
+						&::before {
+							font-family: "dakecrm";
+							display: inline-block;
+							margin-top: 14px;
+							width: 13px;
+							height: 13px;
+							line-height: 13px;
+							text-align: center;
+							font-size: 13px;
+							color: #fff;
+							-webkit-font-smoothing: antialiased;
+						}
+
+						&:hover {
+							.hover
+						}
+					}
+
+					&.onthis {
+						.hover
+					}
+
+					&.index a:before{
+						content: "\e601";
+					}
+					&.remind a:before{
+						content: "\e603";
+					}
+					&.marketing a:before{
+						content: "\e609";
+					}
+					&.management a:before{
+						content: "\e608";
+					}
+					&.member a:before{
+						content: "\e602";
+					}
+					&.analysis a:before{
+						content: "\e604";
+					}
+					&.mysys a:before{
+						content: "\e600";
+					}
+					&.info a:before{
+						content: "\e607";
+					}
+				}
+			}
+
+			.topLogout {
+				float: right;
+				height: 30px;
+				min-width: 30px;
+				margin-top: (@pageTopHeight - 30px) / 2;
+				margin-right: 30px;
+				position: relative;
+				cursor: pointer;
+
+				&::before {
+					display: block;
+					height: 30px;
+					width: 30px;
+					content: "";
+					background: url("../images/logout.png") center center no-repeat;
+					position: absolute;
+					left: -35px;
+				}
+
+				p {
+					padding: 0;
+					margin: 0;
+					line-height: 15px;
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	#pageMain {
+		display: flex;
+		flex-grow: 1;
+		align-items: stretch;
+		
+		nav {
+			width: @navWidth;
+			min-height: 100%;
+			background: url("../images/bg_nav_left.gif") left top repeat-y;
+		}
+		.bodyBox {
+			flex-grow: 1;
+		}
+	}
+
+}
