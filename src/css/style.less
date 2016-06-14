@@ -218,15 +218,19 @@
 						a.level1Li {
 							background: #fff;
 							color: #333;
-
+					
 							&::before {
 								color: @iconGray;
 							}
-
+					
 							&::after{
 								color: @iconGray;
 								transform: rotate(90deg);
 								transition: transform .2s ease-in-out, color .2s ease-in-out;
+							}
+
+							&:hover {
+								.level1OnThis
 							}
 						}
 					}

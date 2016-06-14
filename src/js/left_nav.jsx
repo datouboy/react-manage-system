@@ -1,9 +1,9 @@
 var React = require("react");
 
 /*
- * 完善初始化菜单的Json数据
+ * 善初始化菜单的Json数据
  * 利用自执行函数，将url信息转成完整Url路径，写入原Json数据
- * 二级菜单开启数据处理
+ * 初始化二级菜单开启数据
  */
 leftNavListArray = (function getUrl(leftNavList){
 	for(var i = 0; i <= leftNavList.length-1; i++){

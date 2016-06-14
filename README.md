@@ -24,7 +24,7 @@
  4. eslint 2.12.0
  5. webpack 1.13.1
 
- 备注：
+备注：
  Linux环境下package.json中build的配置需修改成
  NODE_ENV=production webpack --config webpack.config.js --progress --color
 
