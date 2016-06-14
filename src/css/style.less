@@ -1,4 +1,5 @@
 @blue: #0190d4;
+@iconGray : #555;
 
 :global {
 	@font-face {font-family: "dakecrm";
@@ -12,11 +13,13 @@
 	html, body {
 		padding: 0;
 		margin: 0;
+		-webkit-text-size-adjust: none;
 	}
 
 	@logoWidth: 240px;
 	@pageTopHeight: 60px;
 	@navWidth: 190px;
+	@leftNavLiHeight: 38px;
 
 	body {
 		background: #fff;
@@ -176,9 +179,180 @@
 		align-items: stretch;
 		
 		nav {
-			width: @navWidth;
+			width: @navWidth - 1px;
+			padding-right: 1px;
 			min-height: 100%;
 			background: url("../images/bg_nav_left.gif") left top repeat-y;
+
+			ul.level1 {
+				padding: 0;
+				margin: 55px 0 0 0;
+				border-top: 1px solid #dadada;
+
+				li {
+					display: block;
+					
+					.level1OnThis {/*用于调用*/
+						background: @blue;
+						color: #fff;
+						transition: background .2s ease-in-out, color .2s ease-in-out;
+
+						&::before {
+							color: #fff;
+							transition: color .2s ease-in-out;
+						}
+
+						&::after{
+							color: #fff;
+							transition: color .2s ease-in-out;
+						}
+					}
+
+					&.onthis {
+						a.level1Li {
+							.level1OnThis
+						}
+					}
+
+					&.havelevel.onthis {
+						a.level1Li {
+							background: #fff;
+							color: #333;
+
+							&::before {
+								color: @iconGray;
+							}
+
+							&::after{
+								color: @iconGray;
+								transform: rotate(90deg);
+							}
+						}
+					}
+
+					a {
+						display: block;
+						height: @leftNavLiHeight;
+						line-height: @leftNavLiHeight;
+						color: #333;
+						text-decoration: none;
+						padding-left: 43px;
+						font-size: 14px;
+						background: #f7f7f7;
+						border-bottom: 1px solid #dadada;
+						position: relative;
+						transition: background .2s ease-in-out, color .2s ease-in-out;
+
+						strong {
+							font-weight: normal;
+						}
+
+						&:hover {
+							.level1OnThis
+						}
+						
+						@leftNavBeforeWidth : 12px;
+						&::before {
+							position: absolute;
+							display: block;
+							width: @leftNavBeforeWidth;
+							height: @leftNavBeforeWidth;
+							line-height: @leftNavBeforeWidth;
+							left: 15px;
+							top: (@leftNavLiHeight - @leftNavBeforeWidth)/2;
+							font-family: "dakecrm";
+							font-size: @leftNavBeforeWidth;
+							content: "\e601";
+							color: @iconGray;
+							transition: color .2s ease-in-out;
+						}
+
+						@leftNavAfterWidth : 14px;
+						&::after{
+							position: absolute;
+							display: block;
+							width: @leftNavAfterWidth;
+							height: @leftNavAfterWidth;
+							line-height: @leftNavAfterWidth;
+							right: 12px;
+							top: (@leftNavLiHeight - @leftNavAfterWidth)/2;
+							font-family: "dakecrm";
+							font-size: @leftNavAfterWidth;
+							content: "\e605";
+							color: @iconGray;
+							transition: color .2s ease-in-out;
+						}
+					}
+					ul.level2 {
+						padding: 0;
+						margin: 0;
+						display: none;
+
+						&.onthis {
+							display: block;
+						}
+
+						li {
+							display: block;
+							
+							.level2OnThis {/*用于调用*/
+								background: @blue;
+								color: #fff;
+								transition: background .2s ease-in-out, color .2s ease-in-out;
+
+								&::before {
+									background: #fff;
+									transition: background .2s ease-in-out;
+								}
+							}
+
+							&.onthis {
+								a {
+									.level2OnThis
+								}
+							}
+
+							a {
+								display: block;
+								height: @leftNavLiHeight;
+								line-height: @leftNavLiHeight;
+								text-decoration: none;
+								border-bottom: 1px solid #dadada;
+								padding-left: 57px;
+								position: relative;
+								color: #646464;
+
+								&:hover {
+									.level2OnThis
+								}
+
+								&::before {
+									position: absolute;
+									display: block;
+									width: 3px;
+									height: 3px;
+									overflow: hidden;
+									left: 42px;
+									top: (@leftNavLiHeight - 3px)/2;
+									font-size: 12px;
+									content: "";
+									background: #646464;
+									transition: background .2s ease-in-out;
+								}
+
+								&::after {
+									display: none;
+									content: "";
+								}
+
+								strong {
+									font-weight: normal;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 		.bodyBox {
 			flex-grow: 1;

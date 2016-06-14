@@ -5,18 +5,26 @@
 使用React，将前端界面模块化，实现数据和界面的分离
 
 总结经验：
-1. 使用less可以有效的提升CSS的开发效率
-2. 使用eslint可以很好的规范书写规范，并且减少Bug数量
-3. CSS使用flex布局页面，更加方便，代码更简洁
+
+ 1. 使用less可以有效的提升CSS的开发效率
+ 2. 使用eslint可以很好的规范书写规范，并且减少Bug数量
+ 3. CSS使用flex布局页面，更加方便，代码更简洁
 
 ---
 
 ##### 环境
 
+操作系统Win10
+
  1. node v5.10.1
  2. npm 3.9.0
  3. less 2.7.1
  4. eslint 2.12.0
+ 5. webpack 1.13.1
+
+ 备注：
+ Linux环境下package.json中build的配置需修改成
+ NODE_ENV=production webpack --config webpack.config.js --progress --color
 
 ##### 技术栈
 

@@ -2,11 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:9090',
-        path.resolve(__dirname, './src/entry.js')
-    ],
+    entry: getEntrySources([path.resolve(__dirname, './src/entry.js')]),
     output: {
         publicPath: "http://localhost:9090/dist/",
         path: "./dist/js",
@@ -44,5 +40,29 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({//将React切换到产品环境
+            'process.env': {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+            },
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            output: {
+                comments: false,//删除JS中的注释
+            },
+            compress: {
+                warnings: false
+            }
+        })
+    ]
 };
+
+function getEntrySources(sources) {
+    if (process.env.NODE_ENV !== 'production') {
+        sources.push('webpack-dev-server/client?http://localhost:9090');
+        sources.push('webpack/hot/only-dev-server');
+    }
+    return sources;
+}
