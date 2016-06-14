@@ -15,6 +15,7 @@ class TopNavLi extends React.Component {
 	}
 }
 
+/*****************************************************/
 //顶部退出按钮组件
 class TopLogOut extends React.Component {
 	handleClick(e){
@@ -32,6 +33,7 @@ class TopLogOut extends React.Component {
 	}
 }
 
+/*****************************************************/
 //顶部导航栏列表组件
 class TopNavPrint extends React.Component {
 	render(){
@@ -67,4 +69,5 @@ class TopNavPrint extends React.Component {
 	}
 }
 
+/*****************************************************/
 module.exports = TopNavPrint;

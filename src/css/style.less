@@ -204,7 +204,7 @@
 
 						&::after{
 							color: #fff;
-							transition: color .2s ease-in-out;
+							transition: transform .2s ease-in-out, color .2s ease-in-out;
 						}
 					}
 
@@ -226,6 +226,7 @@
 							&::after{
 								color: @iconGray;
 								transform: rotate(90deg);
+								transition: transform .2s ease-in-out, color .2s ease-in-out;
 							}
 						}
 					}
@@ -280,16 +281,20 @@
 							font-size: @leftNavAfterWidth;
 							content: "\e605";
 							color: @iconGray;
-							transition: color .2s ease-in-out;
+							transform: rotate(0deg);
+							transition: transform .2s ease-in-out, color .2s ease-in-out;
 						}
 					}
 					ul.level2 {
 						padding: 0;
 						margin: 0;
-						display: none;
+						height: 0;
+						overflow: hidden;
+						transition: height .2s ease-in-out;
 
 						&.onthis {
-							display: block;
+							height: auto;
+							transition: height .2s ease-in-out;
 						}
 
 						li {
