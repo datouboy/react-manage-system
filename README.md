@@ -2,13 +2,15 @@
 
 ---
 
-使用React，将前端界面模块化，实现数据和界面的分离
+使用React，将前端界面模块化，实现数据和界面的分离，React使用ES6语法的初步尝试
 
 总结经验：
 
  1. 使用less可以有效的提升CSS的开发效率
  2. 使用eslint可以很好的规范书写规范，并且减少Bug数量
  3. CSS使用flex布局页面，更加方便，代码更简洁
+ 4. React使用ES6语法，getInitialState的方法改变了，用constructor实现
+ 5. React使用ES6语法，绑定事件需要通过bind(this)来传递this.props，ES5是可以直接获取的
 
 ---
 
@@ -31,6 +33,8 @@
 > [webpack](http://webpack.github.io/docs/)
 
 > [React](http://docs.reactjs-china.com/react/docs/getting-started.zh-CN.html)
+
+> [ES6](http://blog.mcbird.cn/2015/09/11/react-on-es6-plus/)
 
 > [less](http://lesscss.cn/)
 
