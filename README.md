@@ -2,7 +2,10 @@
 
 ---
 
-使用React，将前端界面模块化，实现数据和界面的分离，React使用ES6语法的初步尝试
+ 使用React，将前端界面模块化，实现数据和界面的分离，React使用ES6语法的初步尝试。
+ 尝试antd UI组件，功能挺面的，并且支持按需加载。
+ 
+---
 
 总结经验：
 
@@ -39,6 +42,8 @@
 > [less](http://lesscss.cn/)
 
 > [flex](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool)
+
+> [antd](http://ant.design)
 
 ---
 ### 截图
