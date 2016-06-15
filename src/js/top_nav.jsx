@@ -1,4 +1,14 @@
-var React = require("react");
+import React from "react";
+
+//利用自执行函数，将url信息转成完整Url路径，写入原Json数据
+topNavListArray = (function getUrl(topNavList){
+	for(var i = 0; i <= topNavList.length-1; i++){
+		var topNavData = topNavList[i];
+		topNavData.fullUrl = "./url/" + topNavData.url;
+		topNavListArray[i] = topNavData;
+	}
+	return topNavListArray;
+})(topNavListArray);
 
 //顶部导航栏单独按钮组件
 class TopNavLi extends React.Component {
@@ -37,15 +47,6 @@ class TopLogOut extends React.Component {
 //顶部导航栏列表组件
 class TopNavPrint extends React.Component {
 	render(){
-		//利用自执行函数，将url信息转成完整Url路径，写入原Json数据
-		topNavListArray = (function getUrl(topNavList){
-			for(var i = 0; i <= topNavList.length-1; i++){
-				var topNavData = topNavList[i];
-				topNavData.fullUrl = "./url/" + topNavData.url;
-				topNavListArray[i] = topNavData;
-			}
-			return topNavListArray;
-		})(topNavListArray);
 		/* 
 		 * 循环插入导航栏单独按钮组件至topNav数组
 		 * 这里的index是数组元素的数字索引

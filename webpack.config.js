@@ -15,6 +15,7 @@ module.exports = {
         configFile: ".eslintrc.js",
         emitWarnings: true
     },
+    devtool: 'source-map',
     module: {
         loaders: [
             {
@@ -31,13 +32,21 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                loader: 'babel-loader!jsx-loader?harmony',
-                exclude: /node_modules/
+                loader: 'babel',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015','react'],
+                    plugins: [['antd', { 'style': true }]]
+                }
             },
             {
                 test: /\.jsx$/,
-                loader: 'babel-loader!jsx-loader?harmony',
-                exclude: /node_modules/
+                loader: 'babel',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015','react'],
+                    plugins: [['antd', { 'style': true }]]
+                }
             }
         ]
     },

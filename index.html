@@ -2,12 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>达客CRM</title>
 </head>
 <body>
 <script type="text/javascript">
 var shopInfo = {
-	shopName : "小资生活"
+	"shopName" : "小资生活",
+	"systemModel" : "标准版",
+	"smsBalance" : 300,
+	"edmBalance" : 800,
+	"deadline" : "2016-09-25",
+	"paycheckUrl" : "./paycheck",
+	"crmPaycheckUrl" : "http://www.taobao.com",
+	"messageNum" : 25,
+	"otherShops" : [
+		{
+			"title" : "小资生活的另一家分店",
+			"id" : 5897
+		},
+		{
+			"title" : "另一家超级分店",
+			"id" : 3589
+		}
+	]
 }
 var topNavListArray = [
 	{
@@ -64,7 +83,7 @@ var leftNavListArray = [
 		"className" : "index",
 		"name" : "首页",
 		"url" : "index",
-		"onThis" : false,
+		"onThis" : true,
 		"level2" : false
 	},
 	{
@@ -76,7 +95,7 @@ var leftNavListArray = [
 			{
 				"name" : "二级栏目",
 				"url" : "index222",
-				"onThis" : true,
+				"onThis" : false,
 			},
 			{
 				"name" : "首页",
@@ -131,7 +150,7 @@ var leftNavListArray = [
 <div id="pageMain">
 	<nav id="leftNav"></nav>
 	<div class="bodyBox">
-		<div>1</div>
+		<div id="qqq">1</div>
 		<div>2</div>
 		<div>3</div>
 		<div></div>

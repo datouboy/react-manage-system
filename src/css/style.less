@@ -1,5 +1,7 @@
 @blue: #0190d4;
 @iconGray : #555;
+@fontYellow : #f90;
+@orangr : #f60;
 
 :global {
 	@font-face {font-family: "dakecrm";
@@ -20,6 +22,7 @@
 	@pageTopHeight: 60px;
 	@navWidth: 190px;
 	@leftNavLiHeight: 38px;
+	@topBarHeight: 25px;
 
 	body {
 		background: #fff;
@@ -33,8 +36,81 @@
 	}
 
 	#topBar {
-		height: 25px;
+		height: @topBarHeight;
+		line-height: @topBarHeight;
 		background: #2c2f30;
+		color: #cdcdcd;
+		padding: 0 10px 0 25px;
+
+		.infoLeft {
+			float: left;
+		}
+
+		.infoRight {
+			float: right;
+
+			.selectOtherShop {
+				display: inline-block;
+				height: @topBarHeight - 8px;
+				color: #fff;
+				padding: 0 3px;
+			}
+		}
+
+		p.info {
+			padding: 0;
+			margin: 0;
+			display: inline-block;
+			margin-right: 35px;
+
+			span {
+				&.yellow {
+					color: @fontYellow;
+				}
+
+				&.messageNumBox {
+					display: inline-block;
+					height: @topBarHeight - 4px;
+					line-height: @topBarHeight - 4px;
+					background: #d80706;
+					border-radius: 3px;
+					padding: 0 3px;
+					text-align: center;
+					min-width: 20px;
+				}
+			}
+
+			a.paycheckMenu {
+				display: block;
+				color: #fff;
+				background: @orangr;
+				border-radius: 3px;
+				line-height: @topBarHeight - 4px;
+				text-decoration: none;
+				padding: 0 10px 0 30px;
+				position: relative;
+				transition: background .2s ease-in-out;
+
+				&::before{
+					display: block;
+					height: @topBarHeight - 8px;
+					line-height: @topBarHeight - 10px;
+					width: @topBarHeight - 8px;
+					font-size: @topBarHeight - 10px;
+					text-align: center;
+					font-family: "dakecrm";
+					content: "\e606";
+					position: absolute;
+					top: 2px;
+					left: 10px;
+				}
+
+				&:hover{
+					background: @fontYellow;
+					transition: background .2s ease-in-out;
+				}
+			}
+		}
 	}
 
 	#pageTop {
@@ -72,13 +148,13 @@
 
 				.hover {
 					background: #006599 url("../images/top_nav_bg.gif") left top no-repeat;
+					transition: background .2s ease-in-out;
 				}
 
 				li{
 					display: block;
 					float: left;
 					height: @pageTopHeight;
-					background: url("../images/top_nav_bg.gif") left top no-repeat;
 
 					a {
 						display: block;
@@ -88,6 +164,8 @@
 						color: #fff;
 						text-decoration: none;
 						text-align: center;
+						background: @blue url("../images/top_nav_bg.gif") left top no-repeat;
+						transition: background .2s ease-in-out;
 
 						strong {
 							display: block;

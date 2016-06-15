@@ -1,4 +1,4 @@
-var React = require("react");
+import React from "react";
 
 /*
  * 善初始化菜单的Json数据
@@ -142,7 +142,7 @@ class LeftNavPrint extends React.Component {
 			this.setState({
 				navClassName : navClassName
 			})
-			console.log("Cilck Level1 Li " + navClassName[index].onThis);
+			//console.log("Cilck Level1 Li " + navClassName[index].onThis);
 		}.bind(this);
 	}
 	/*
