@@ -34,7 +34,6 @@
     "less-loader": "^2.2.3",
     "node-sass": "^3.7.0",
     "react": "^15.1.0",
-    "react-bootstrap": "^0.29.4",
     "react-dom": "^15.1.0",
     "style": "0.0.3",
     "style-loader": "^0.13.1",

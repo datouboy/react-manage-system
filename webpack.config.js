@@ -15,7 +15,7 @@ module.exports = {
         configFile: ".eslintrc.js",
         emitWarnings: true
     },
-    devtool: 'source-map',
+    //devtool: 'source-map',
     module: {
         loaders: [
             {

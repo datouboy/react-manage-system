@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 /*
  * 善初始化菜单的Json数据
@@ -56,6 +57,23 @@ class LeftNavLiLevel_2 extends React.Component {
 /*****************************************************/
 //左侧导航栏二级菜单打包组件
 class LeftNavLiLevel_2_Box extends React.Component {
+	//设置初始State值
+	constructor(props) {
+		super(props);
+		this.state = {
+			liHeight: 38
+		};
+	}
+	//Dom节点生成后，初始化二级菜单Ul的高度
+	componentDidMount(){
+		//获取真实Dom截点，以获取实际高度
+		var level2DOM = ReactDOM.findDOMNode(this.refs.level2Li0);
+		if(level2DOM != null){
+			this.setState({
+				liHeight : level2DOM.scrollHeight //对象的真实高度
+			})
+		}
+	}
 	render(){
 		/* 
 		 * 循环插入二级导航组件至当前一级菜单组件
@@ -67,15 +85,15 @@ class LeftNavLiLevel_2_Box extends React.Component {
 		if(level2Array.length > 0){
 			level2Array.forEach(function(value,index){
 				// key={index} 用于React优化性能
-				level2Nav.push(<LeftNavLiLevel_2 key={index} data={value} />);
+				level2Nav.push(<LeftNavLiLevel_2 key={index} keyNum={index} data={value} ref={"level2Li" + index} />);
 			}.bind(this));
 		}
-		
+
 		var styleObj = {}
 		var classNameStr = "level2";
 		if(this.props.navOpen){
 			classNameStr += " onthis";
-			styleObj.height = (level2Array.length * 39) + "px";
+			styleObj.height = (level2Array.length * this.state.liHeight) + "px";
 		}else{
 			styleObj.height = 0;
 		}

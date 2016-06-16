@@ -2,7 +2,6 @@ import React from "react";
 import { Menu, Dropdown, Icon } from 'antd';
 
 
-
 /*****************************************************/
 //顶部信息显示组件
 class InfoShow extends React.Component {
@@ -29,35 +28,34 @@ class PaycheckMenu extends React.Component {
 }
 
 /*****************************************************/
-//组装子店铺Jsx数据
-var otherShopsArray = [];
-var otherShopsKey = 0;
-shopInfo.otherShops.forEach(function(value,index){
-	otherShopsArray.push(
-	    <Menu.Item key={otherShopsKey}>
-			<a href={"http://www.taobao.com/" + value.id}>{value.title}</a>
-	    </Menu.Item>
-    )
-    otherShopsKey++;
-    if(shopInfo.otherShops.length - 1 > index){
-    	otherShopsArray.push(<Menu.Divider key={otherShopsKey} />);
-    	otherShopsKey++;
-    }
-});
-var menu = (
-	<Menu>
-		{otherShopsArray}
-	</Menu>
-);
-
-/*****************************************************/
 //组装选择子店铺组件
 class SelectOtherShop extends React.Component {
 	render(){
+		//组装子店铺Jsx数据
+		var otherShopsArray = [];
+		var otherShopsKey = 0;
+		this.props.data.forEach(function(value,index){
+			otherShopsArray.push(
+			    <Menu.Item key={otherShopsKey}>
+					<a href={"http://www.taobao.com/" + value.id}>{value.title}</a>
+			    </Menu.Item>
+		    )
+		    otherShopsKey++;
+		    if(this.props.data.length - 1 > index){
+		    	otherShopsArray.push(<Menu.Divider key={otherShopsKey} />);
+		    	otherShopsKey++;
+		    }
+		}.bind(this));
+		var menu = (
+			<Menu>
+				{otherShopsArray}
+			</Menu>
+		);
+
 		return(
 			<div className={"selectOtherShop"}>
 				<Dropdown overlay={menu} trigger={['click']}>
-					<a className={"ant-dropdown-link"} href={"#"}>
+					<a className={"ant-dropdown-shop"} href={"#"}>
 						选择子店铺：<Icon type={"down"} />
 					</a>
 				</Dropdown>
@@ -71,14 +69,41 @@ class SelectOtherShop extends React.Component {
 class MessageNum extends React.Component {
 	render(){
 		//如果消息数为0，则不显示
+		var messageArray = [];
 		var styleObj = {};
-		if(this.props.messageNum == 0){
+		if(this.props.length == 0){
 			styleObj.display = "none";
+		}else{
+			//如果有消息，则组装消息数组
+			var messageKey = 0;
+			this.props.messageNum.forEach(function(value,index){
+				messageArray.push(
+				    <Menu.Item key={messageKey}>
+						<a href={"http://www.taobao.com/" + value.id}>
+							<Icon type={"info-circle colorOrange"} /> {value.title}
+						</a>
+				    </Menu.Item>
+			    )
+			    messageKey++;
+			    if(this.props.messageNum - 1 > index){
+			    	otherShopsArray.push(<Menu.Divider key={messageKey} />);
+			    	messageKey++;
+			    }
+			}.bind(this))
 		}
+		var menu = (
+			<Menu>
+				{messageArray}
+			</Menu>
+		);
 
 		return(
 			<p className={"info"} style={styleObj}>
-				<span>新消息</span> <span className={"messageNumBox"}>{this.props.messageNum}</span>
+				<Dropdown overlay={menu} trigger={['click']}>
+					<a className={"ant-dropdown-info"} href={"#"}>
+						<span>您有新消息</span> <span className={"messageNumBox"}>{this.props.messageNum.length}</span>
+					</a>
+				</Dropdown>
 			</p>
 		);
 	}
@@ -101,8 +126,8 @@ class TopInfoPrint extends React.Component {
 					<PaycheckMenu title={"续费"} url={shopInfo.crmPaycheckUrl} />
 				</div>
 				<div className={"infoRight"}>
-					<MessageNum messageNum={shopInfo.messageNum} />
-					<SelectOtherShop />
+					<MessageNum messageNum={messageArray} />
+					<SelectOtherShop data={shopInfo.otherShops} />
 				</div>
 			</div>
 		);
