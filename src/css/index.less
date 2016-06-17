@@ -1,0 +1,152 @@
+@blue: #0190d4;
+@iconGray : #555;
+@orangr : #f60;
+@fontYellow : #f90;
+@fontBlueGray : #506470;
+
+:global {
+	.boxAnimateStart {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	.boxAnimateEnd {
+		opacity: 1;
+		transform: translateX(0px);
+		transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+	}
+
+	#contentBox {
+		display: flex;
+
+		.indexLeft {
+			float: left;
+			width: 75%;
+			margin-right: 20px;
+
+			.indexFlash {
+				height: 135px;
+				background: #eee;
+				overflow: hidden;
+				text-align: center;
+				margin-bottom: 20px;
+
+				&.animateStart {
+					.boxAnimateStart
+				}
+				&.animateEnd {
+					.boxAnimateEnd
+				}
+
+				a {
+					display: block;
+					height: 135px;
+					background-position: center center;
+				}
+			}
+			
+			@indexMemberInfoHeight : 115px;
+			.indexMemberInfo {
+				height: @indexMemberInfoHeight;
+				background: #f1f1f1;
+				border-left: 3px solid @blue;
+				color: @fontBlueGray;
+
+				&.animateStart {
+					.boxAnimateStart
+				}
+				&.animateEnd {
+					.boxAnimateEnd
+				}
+
+				.memberNum {
+					height: @indexMemberInfoHeight;
+					line-height: 250%;
+					background: #ebebeb;
+					float: left;
+					border-left: 1px solid #e8e8e8;
+					padding:21px 30px 0 87px;
+					position: relative;
+
+					&::before{
+						display: block;
+						width: 36px;
+						height: 37px;
+						content: "";
+						background: url("../images/icon_member.png") no-repeat;
+						position: absolute;
+						left: 21px;
+						top: 38px;
+					}
+
+					p {
+						font-size: 13px;
+					}
+					strong {
+						display: block;
+						font-size: 40px;
+					}
+				}
+
+				.importMember {
+					height: @indexMemberInfoHeight;
+					border-left: 1px solid #fff;
+					float: left;
+					padding: 16px 0 0 25px;
+
+					p {
+						span.note {
+							display: inline-block;
+							padding-left: 15px;
+							font-size: 14px;
+						}
+					}
+
+					a.aMenuIcon {
+						span {
+							width: 137px;
+						}
+
+						&.importRecords{
+							span {
+								width: 137px;
+							}
+							&::before {
+								content: "\e60a";
+							}
+							&:hover {
+								background: lighten(@blue, 3%);
+								&::before {
+									background: lighten(#0084c3, 3%);
+								}
+							}
+						}
+
+						&.importNums{
+							background: #d44501;
+							span {
+								width: 137px;
+								border-left: 1px solid #d85202;
+							}
+							&::before {
+								background: #c33e00;
+								border-right: 1px solid #ba3500;
+								content: "\e60b";
+							}
+							&:hover {
+								background: lighten(#d44501, 3%);
+								&::before {
+									background: lighten(#c33e00, 3%);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.indexRight {
+			float: right;
+			width: 25%;
+		}
+	}
+}

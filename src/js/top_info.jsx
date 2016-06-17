@@ -56,7 +56,7 @@ class SelectOtherShop extends React.Component {
 			<div className={"selectOtherShop"}>
 				<Dropdown overlay={menu} trigger={['click']}>
 					<a className={"ant-dropdown-shop"} href={"#"}>
-						选择子店铺：<Icon type={"down"} />
+						切换店铺：请选择子店铺 <Icon type={"down"} />
 					</a>
 				</Dropdown>
 			</div>

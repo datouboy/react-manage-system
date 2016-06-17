@@ -8,6 +8,13 @@ module.exports = {
         path: "./dist/js",
         filename: "bundle.js"
     },
+    devServer:{//本地测试服务器配置
+        contentBase: 'src', //静态资源的目录
+        devtool: 'source-map',
+        hot: true, //自动刷新
+        inline: true,    
+        port: 9090        
+    },
     resolve: {
         extensions: ['', '.js', '.jsx']
     },

@@ -1,11 +1,13 @@
+/*
+ *  flex布局在内容元素宽度特别大，会撑破容器的情况下，不太好用
+ *  css3 flex流动自适应响应式布局实例
+ *  http://qianduanblog.com/post/css-learning-18-css3-flex-responsive-design-example.html
+ */
+
 @blue: #0190d4;
 @iconGray : #555;
 @fontYellow : #f90;
 @orangr : #f60;
-
-.colorOrange {
-	color: @orangr;
-}
 
 :global {
 	@font-face {font-family: "dakecrm";
@@ -14,6 +16,57 @@
 		url("../font/iconfont.woff") format("woff"), /* chrome, firefox */
 		url("../font/iconfont.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
 		url("../font/iconfont.svg#dakecrm") format("svg"); /* iOS 4.1- */
+	}
+
+	.colorOrange {
+		color: @orangr;
+	}
+
+	a.aMenuIcon {
+		display: inline-block;
+		height: 35px;
+		line-height: 35px;
+		padding-left: 35px;
+		background: @blue;
+		color: #fff;
+		border-radius: 3px;
+		position: relative;
+		transition: background .2s ease-in-out;
+
+		span {
+			display: block;
+			text-align: center;
+			height: 35px;
+			line-height: 35px;
+			border-left: 1px solid #029ad8;
+			font-size: 14px;
+		}
+
+		&::before {
+			position: absolute;
+			background: #0084c3;
+			border-right: 1px solid #0077ba;
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+			font-size: 18px;
+			text-align: center;
+			left: 0;
+			top: 0;
+			font-family: "dakecrm";
+			content: "";
+			border-radius: 3px 0 0 3px;
+			transition: background .2s ease-in-out;
+		}
+
+		&:hover{
+			color: #fff;
+			transition: background .2s ease-in-out;
+			&::before {
+				color: #fff;
+				transition: background .2s ease-in-out;
+			}
+		}
 	}
 
 	html, body {
@@ -29,7 +82,7 @@
 	@topBarHeight: 25px;
 
 	body {
-		background: #fff;
+		background: #fff url("../images/bg_nav_left.gif") left top repeat-y;
 		display: flex;
 		min-height: 100vh;
 		min-width: @logoWidth + 800px + 220px;
@@ -111,7 +164,7 @@
 
 				&:hover{
 					background: @fontYellow;
-					transition: background .2s ease-in-out;
+					transition: background 1s ease-in-out;
 				}
 			}
 
@@ -265,10 +318,14 @@
 		align-items: stretch;
 		
 		nav {
-			width: @navWidth - 1px;
+			width: @navWidth;
 			padding-right: 1px;
 			min-height: 100%;
 			background: url("../images/bg_nav_left.gif") left top repeat-y;
+
+			min-width: @navWidth;
+			max-width: @navWidth;
+			flex-grow: 0;
 
 			ul.level1 {
 				padding: 0;
@@ -450,7 +507,14 @@
 			}
 		}
 		.bodyBox {
+			width: auto;
 			flex-grow: 1;
+			min-height: 100%;
+			background: #fff;
+
+			#contentBox {
+				margin: 20px;
+			}
 		}
 	}
 

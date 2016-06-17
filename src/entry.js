@@ -1,5 +1,7 @@
+//全局公共css文件
 import "./css/style.less";
-//require('./js/common.js');
+//首页css文件
+import "./css/index.less";
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -12,6 +14,9 @@ import TopNavPrint from "./js/top_nav.jsx";
 
 //左侧导航组件
 import LeftNavPrint from "./js/left_nav.jsx";
+
+//首页内容区组件（左侧）
+import IndexContentLeft from "./js/index_left.jsx";
 
 
 ReactDOM.render(
@@ -27,4 +32,9 @@ ReactDOM.render(
 ReactDOM.render(
 	<LeftNavPrint />,
 	document.getElementById("leftNav")
+);
+
+ReactDOM.render(
+	<IndexContentLeft />,
+	document.getElementById("indexLeft")
 );
