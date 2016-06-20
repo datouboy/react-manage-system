@@ -18,6 +18,16 @@
 		url("../font/iconfont.svg#dakecrm") format("svg"); /* iOS 4.1- */
 	}
 
+	.boxAnimateStart {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+	.boxAnimateEnd {
+		opacity: 1;
+		transform: translateX(0px);
+		transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+	}
+
 	.colorOrange {
 		color: @orangr;
 	}
@@ -65,6 +75,43 @@
 			&::before {
 				color: #fff;
 				transition: background .2s ease-in-out;
+			}
+		}
+	}
+
+	.commonDivBox {
+		border: 1px solid #d1d1d1;
+
+		&.animateStart {
+			.boxAnimateStart
+		}
+		&.animateEnd {
+			.boxAnimateEnd
+		}
+
+		h3 {
+			height: 39px;
+			line-height: 39px;
+			background: url("../images/bg_title.gif") left top repeat-x;
+			font-size: 14px;
+			position: relative;
+			padding-left: 40px;
+			color: #666;
+			font-weight: normal;
+			border-bottom: 1px solid #b4b4b4;
+
+			&::before {
+				position: absolute;
+				width: 14px;
+				height: 14px;
+				line-height: 14px;
+				left: 14px;
+				top: 12.5px;
+				content: "";
+				font-family: "dakecrm";
+				font-size: 14px;
+				text-align: center;
+				color: #333;
 			}
 		}
 	}

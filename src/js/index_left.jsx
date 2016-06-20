@@ -11,6 +11,8 @@ function toThousands(num) {
     return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
 }
 
+
+
 /*****************************************************/
 //会员信息组件（包含导入数据按钮）
 class MemberInfo extends React.Component {
@@ -42,10 +44,57 @@ class MemberInfo extends React.Component {
 }
 
 /*****************************************************/
+//首页常用功能组件(子组件)
+class CommonFunMenu extends React.Component {
+	render(){
+		var className = "iconBox ";
+			className += this.props.data.className;
+
+		return(
+			<div className={"commonFunMenu"}>
+				<a className={className} href={this.props.data.url} target={"_black"}></a>
+				<h4>{this.props.data.title}</h4>
+				<p>{this.props.data.description}</p>
+			</div>
+		);
+	}
+}
+
+/*****************************************************/
+//首页常用功能组件
+class CommonFun extends React.Component {
+	render(){
+		var className = "commonDivBox animateStart";
+		if(this.props.classData){
+			className += " animateEnd";
+		}
+
+		//循环子组件列表
+		var commonFun = this.props.data;
+		var commonFunArray = [];
+
+		if(commonFun.length > 0){
+			commonFun.forEach(function(value, index){
+				commonFunArray.push(<CommonFunMenu key={index} data={value} />);
+			})
+		}
+
+		return(
+			<div className={className}>
+				<h3 className={"commonFun"}>常用功能</h3>
+				<div className={"commonDivBoxMain"}>
+					{commonFunArray}
+				</div>
+			</div>
+		);
+	}
+}
+
+/*****************************************************/
 //首页左侧组件包加载
 class IndexLeftContentPrint extends React.Component {
 	boxAnimate(stateObj, times, callBack){
-		setInterval(function(){
+		setTimeout(function(){
 			this.setState(stateObj);
 			callBack && callBack();
 		}.bind(this),times);
@@ -55,12 +104,15 @@ class IndexLeftContentPrint extends React.Component {
 		super(props);
 		this.state = {
 			indexFlashBanner: false,
-			indexMemberInfo: false
+			indexMemberInfo: false,
+			commonDivBox: false
 		}
 	}
 	componentDidMount(){
 		this.boxAnimate({indexFlashBanner: true}, 50, function(){
 			this.boxAnimate({indexMemberInfo: true}, 200, function(){
+				this.boxAnimate({commonDivBox: true}, 200, function(){
+				}.bind(this));
 			}.bind(this));
 		}.bind(this));
 	}
@@ -69,6 +121,7 @@ class IndexLeftContentPrint extends React.Component {
 			<div>
 				<IndexFlashBanner data={indexContent.flash} classData={this.state.indexFlashBanner} />
 				<MemberInfo memberNum={shopInfo.memberNum} classData={this.state.indexMemberInfo} />
+				<CommonFun data={indexContent.commonFun} classData={this.state.commonDivBox} />
 			</div>
 		);
 	}

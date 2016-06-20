@@ -50,6 +50,7 @@
 				background: #f1f1f1;
 				border-left: 3px solid @blue;
 				color: @fontBlueGray;
+				margin-bottom: 20px;
 
 				&.animateStart {
 					.boxAnimateStart
@@ -83,7 +84,11 @@
 					}
 					strong {
 						display: block;
-						font-size: 40px;
+						font-size: 36px;
+						/* 响应式布局 （屏幕大于等于 1350px） */
+						@media (min-width: 1350px) {
+							font-size: 40px;
+						}
 					}
 				}
 
@@ -96,8 +101,13 @@
 					p {
 						span.note {
 							display: inline-block;
-							padding-left: 15px;
-							font-size: 14px;
+							padding-left: 10px;
+							font-size: 12px;
+							/* 响应式布局 （屏幕大于等于 1350px） */
+							@media (min-width: 1350px) {
+								padding-left: 15px;
+								font-size: 14px;
+							}
 						}
 					}
 
@@ -138,6 +148,90 @@
 									background: lighten(#c33e00, 3%);
 								}
 							}
+						}
+					}
+				}
+			}
+
+			.commonDivBox {
+				h3 {
+					&.commonFun:before {
+						content: "\e60d";
+					}
+				}
+				.commonDivBoxMain{
+					padding: 20px;
+					display: flex;
+					justify-content: space-around;/*两端对齐（作用于容器）*/
+					align-items: flex-end;/*侧轴方向对齐方式（作用于容器）*/
+					flex-wrap: wrap;/*换行（作用于容器）*/
+
+					.commonFunMenu {
+						width: 45%;
+						min-width: 320px;
+						height: 110px;
+						position: relative;
+						padding-left: 90px;
+
+						a.iconBox {
+							position: absolute;
+							left: 0;
+							top: 0;
+							width: 80px;
+							height: 80px;
+							background: @blue;
+							border-radius: 50%;
+							box-shadow:4px 4px 4px #0182bf inset;
+							transition: background .3s ease-in-out;
+
+							&::before {
+								display: block;
+								width: 80px;
+								height: 80px;
+								position: absolute;
+								left: 0;
+								top: 0;
+								text-align: center;
+								content: "";
+								background-image: url(../images/icon_index.png);
+								background-repeat: no-repeat;
+							}
+
+							&:hover{
+								background: lighten(@blue, 5%);
+								transition: background .3s ease-in-out;
+							}
+
+							&.sendSms:before {
+								background-position: center 0;
+							}
+							&.noPayment:before {
+								background-position: center -80px;
+							}
+							&.sendGoods:before {
+								background-position: center -160px;
+							}
+							&.appointNum:before {
+								background-position: center -240px;
+							}
+							&.sign:before {
+								background-position: center -320px;
+							}
+							&.report:before {
+								background-position: center -400px;
+							}
+						}
+
+						h4 {
+							font-size: 16px;
+							font-weight: normal;
+							color: #333;
+							margin-bottom: 5px;
+						}
+
+						p {
+							font-size: 14px;
+							color: #999;
 						}
 					}
 				}
