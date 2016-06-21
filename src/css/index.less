@@ -15,9 +15,9 @@
 		transition: opacity .5s ease-in-out, transform .5s ease-in-out;
 	}
 
-	#contentBox {
+	.contentBox{
 		display: flex;
-
+	
 		.indexLeft {
 			float: left;
 			width: 75%;
@@ -41,6 +41,7 @@
 					display: block;
 					height: 135px;
 					background-position: center center;
+					background-repeat: no-repeat;
 				}
 			}
 			
@@ -152,95 +153,286 @@
 					}
 				}
 			}
-
-			.commonDivBox {
-				h3 {
-					&.commonFun:before {
-						content: "\e60d";
-					}
-				}
-				.commonDivBoxMain{
-					padding: 20px;
-					display: flex;
-					justify-content: space-around;/*两端对齐（作用于容器）*/
-					align-items: flex-end;/*侧轴方向对齐方式（作用于容器）*/
-					flex-wrap: wrap;/*换行（作用于容器）*/
-
-					.commonFunMenu {
-						width: 45%;
-						min-width: 320px;
-						height: 110px;
-						position: relative;
-						padding-left: 90px;
-
-						a.iconBox {
-							position: absolute;
-							left: 0;
-							top: 0;
-							width: 80px;
-							height: 80px;
-							background: @blue;
-							border-radius: 50%;
-							box-shadow:4px 4px 4px #0182bf inset;
-							transition: background .3s ease-in-out;
-
-							&::before {
-								display: block;
-								width: 80px;
-								height: 80px;
-								position: absolute;
-								left: 0;
-								top: 0;
-								text-align: center;
-								content: "";
-								background-image: url(../images/icon_index.png);
-								background-repeat: no-repeat;
-							}
-
-							&:hover{
-								background: lighten(@blue, 5%);
-								transition: background .3s ease-in-out;
-							}
-
-							&.sendSms:before {
-								background-position: center 0;
-							}
-							&.noPayment:before {
-								background-position: center -80px;
-							}
-							&.sendGoods:before {
-								background-position: center -160px;
-							}
-							&.appointNum:before {
-								background-position: center -240px;
-							}
-							&.sign:before {
-								background-position: center -320px;
-							}
-							&.report:before {
-								background-position: center -400px;
-							}
-						}
-
-						h4 {
-							font-size: 16px;
-							font-weight: normal;
-							color: #333;
-							margin-bottom: 5px;
-						}
-
-						p {
-							font-size: 14px;
-							color: #999;
-						}
-					}
-				}
-			}
 		}
 
 		.indexRight {
 			float: right;
 			width: 25%;
+
+			.indexFlash {
+				height: 207px;
+				background: #eee;
+				overflow: hidden;
+				text-align: center;
+				margin-bottom: 20px;
+
+				&.animateStart {
+					.boxAnimateStart
+				}
+				&.animateEnd {
+					.boxAnimateEnd
+				}
+
+				a {
+					display: block;
+					height: 207px;
+					background-position: center center;
+					background-repeat: no-repeat;
+					background-size: cover;
+				}
+			}
+		}
+
+		.commonDivBox {
+			h3 {
+				&.commonFun:before {
+					content: "\e60d";
+				}
+				&.systemNote:before {
+					content: "\e60c";
+				}
+				&.contactService:before {
+					content: "\e60e";
+				}
+			}
+			.commonDivBoxMain {
+				padding: 20px;
+				display: flex;
+				justify-content: space-around;/*两端对齐（作用于容器）*/
+				align-items: flex-end;/*侧轴方向对齐方式（作用于容器）*/
+				flex-wrap: wrap;/*换行（作用于容器）*/
+
+				.commonFunMenu {
+					width: 45%;
+					min-width: 320px;
+					height: 110px;
+					position: relative;
+					padding-left: 90px;
+
+					a.iconBox {
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 80px;
+						height: 80px;
+						background: @blue;
+						border-radius: 50%;
+						box-shadow:4px 4px 4px #0182bf inset;
+						transition: background .3s ease-in-out;
+
+						&::before {
+							display: block;
+							width: 80px;
+							height: 80px;
+							position: absolute;
+							left: 0;
+							top: 0;
+							text-align: center;
+							content: "";
+							background-image: url(../images/icon_index.png);
+							background-repeat: no-repeat;
+						}
+
+						&:hover{
+							background: lighten(@blue, 5%);
+							transition: background .3s ease-in-out;
+						}
+
+						&.sendSms:before {
+							background-position: center 0;
+						}
+						&.noPayment:before {
+							background-position: center -80px;
+						}
+						&.sendGoods:before {
+							background-position: center -160px;
+						}
+						&.appointNum:before {
+							background-position: center -240px;
+						}
+						&.sign:before {
+							background-position: center -320px;
+						}
+						&.report:before {
+							background-position: center -400px;
+						}
+					}
+
+					h4 {
+						font-size: 16px;
+						font-weight: normal;
+						color: #333;
+						margin-bottom: 5px;
+					}
+
+					p {
+						font-size: 14px;
+						color: #999;
+					}
+				}
+			}
+
+			.commonDivBoxNews {
+				padding: 10px;
+				text-align: center;
+
+				ul {
+					margin-bottom: 6px;
+
+					li {
+						display: flex;
+						height: 34px;
+						line-height: 18px;
+						border-bottom: 1px dotted #d8d8d8;
+						position: relative;
+						padding:7px 0 7px 28px;
+						align-items: center;/*垂直居中（作用于容器）*/
+
+						a {
+							font-size: 13px;
+							color: #333;
+							flex-grow: 1;
+							white-space:nowrap;
+							overflow: hidden;
+							text-overflow:ellipsis;
+							text-align: left;
+
+							&:hover{
+								text-decoration: underline;
+							}
+						}
+
+						span {
+							display: inline-block;
+							width: 46px;
+							min-width: 46px;
+							max-width: 46px;
+							height: 18px;
+							line-height: 18px;
+							text-align: center;
+							border-radius: 3px;
+							background: @orangr;
+							color: #fff;
+							margin-right: 8px;
+							flex-grow: 0;
+
+							&.fun {
+								background: @blue;
+							}
+						}
+
+						em {
+							float: right;
+							font-size: 11px;
+							color: #b2b2b2;
+							flex-grow: 0;
+							width: 80px;
+							min-width: 80px;
+							max-width: 80px;
+							text-align: right;
+						}
+
+						&::before {
+							position: absolute;
+							display: block;
+							width: 15px;
+							height: 15px;
+							line-height: 15px;
+							left: 5px;
+							top: 9.5px;
+							font-family: "dakecrm";
+							font-size: 15px;
+							text-align: center;
+							content: "\e610";
+							color: @orangr;
+						}
+
+						&.open {
+							&::before {
+								content: "\e611";
+								color: #bbb;
+							}
+						}
+					}
+				}
+
+				p{
+					&.phoneNum{
+						span {
+							display: inline-block;
+							font-size: 14px;
+							height: 30px;
+							line-height: 30px;
+							position: relative;
+							padding-left: 25px;
+
+							&::before{
+								display: block;
+								width: 18px;
+								height: 18px;
+								line-height: 18px;
+								font-size: 18px;
+								text-align: center;
+								font-family: "dakecrm";
+								content: "";
+								position: absolute;
+								left: 0;
+								top: (30px - 18px)/2;
+								color: #506470;
+							}
+
+							&.phone:before{
+								content: "\e614";
+							}
+							&.mobile:before{
+								content: "\e613";
+							}
+						}
+					}
+
+					&.imBox{
+						margin-bottom: 20px;
+
+						a {
+							display: inline-block;
+							color: @blue;
+							margin: 0 8px;
+
+							img {
+								display: inline-block;
+								vertical-align: middle;
+							}
+							span {
+								display: inline-block;
+								vertical-align: middle;
+							}
+						}
+					}
+				}
+				
+				a.aMenuIcon {
+					span {
+						width: 190px;
+					}
+					&:hover {
+						background: lighten(@blue, 3%);
+						&::before {
+							background: lighten(#0084c3, 3%);
+						}
+					}
+					&.addFun{
+						&::before {
+							content: "\e60f";
+						}
+					}
+					&.service{
+						&::before {
+							content: "\e612";
+						}
+					}
+				}
+			}
+
 		}
 	}
 }

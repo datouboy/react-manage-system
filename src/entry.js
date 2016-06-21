@@ -15,8 +15,8 @@ import TopNavPrint from "./js/top_nav.jsx";
 //左侧导航组件
 import LeftNavPrint from "./js/left_nav.jsx";
 
-//首页内容区组件（左侧）
-import IndexContentLeft from "./js/index_left.jsx";
+//首页内容区组件
+import IndexContent from "./js/index_content.jsx";
 
 
 ReactDOM.render(
@@ -35,6 +35,6 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-	<IndexContentLeft />,
-	document.getElementById("indexLeft")
+	<IndexContent />,
+	document.getElementById("contentBox")
 );
