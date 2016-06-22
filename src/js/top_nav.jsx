@@ -60,11 +60,18 @@ class TopNavPrint extends React.Component {
 		}.bind(this));
 
 		return(
-			<div className={"topNav"}>
-				<ul>
-					{topNav}
-				</ul>
-				<TopLogOut data={shopInfo} />
+			<div className={"pageTop"}>
+				<div className={"logo"}>
+					<a href={shopInfo.siteUrl}></a>
+				</div>
+				<div id={"topNavBox"}>
+					<div className={"topNav"}>
+						<ul>
+							{topNav}
+						</ul>
+						<TopLogOut data={shopInfo} />
+					</div>
+				</div>
 			</div>
 		);
 	}

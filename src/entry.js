@@ -26,7 +26,7 @@ ReactDOM.render(
 
 ReactDOM.render(
 	<TopNavPrint />,
-	document.getElementById("topNavBox")
+	document.getElementById("pageTop")
 );
 
 ReactDOM.render(
@@ -36,5 +36,5 @@ ReactDOM.render(
 
 ReactDOM.render(
 	<IndexContent />,
-	document.getElementById("contentBox")
+	document.getElementById("bodyBox")
 );

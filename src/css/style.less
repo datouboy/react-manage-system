@@ -221,8 +221,10 @@
 		}
 	}
 
-	#pageTop {
+	.pageTop {
 		height: @pageTopHeight;
+		min-height: @pageTopHeight;
+		max-height: @pageTopHeight;
 		background: @blue;
 		display: flex;
 
@@ -553,15 +555,11 @@
 				}
 			}
 		}
-		.bodyBox {
+		#bodyBox {
 			width: auto;
 			flex-grow: 1;
 			min-height: 100%;
 			background: #fff;
-
-			#contentBox {
-				margin: 20px;
-			}
 		}
 	}
 

@@ -243,7 +243,7 @@ class ContactService extends React.Component {
 
 /*****************************************************/
 //首页组件包加载
-class IndexLeftContentPrint extends React.Component {
+class IndexContentPrint extends React.Component {
 	boxAnimate(stateObj, times, callBack){
 		setTimeout(function(){
 			this.setState(stateObj);
@@ -296,4 +296,4 @@ class IndexLeftContentPrint extends React.Component {
 }
 
 /*****************************************************/
-module.exports = IndexLeftContentPrint;
+module.exports = IndexContentPrint;
