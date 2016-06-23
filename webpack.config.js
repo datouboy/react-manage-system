@@ -1,19 +1,31 @@
 const path = require('path');
 const webpack = require('webpack');
+//多入口配置，用于优化提取出公共内容
+const commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 
 module.exports = {
-    entry: getEntrySources([path.resolve(__dirname, './src/entry.js')]),
+    //单入口配置
+    /*entry: getEntrySources([path.resolve(__dirname, './src/entry.js')]),
     output: {
         publicPath: "http://localhost:9090/dist/",
         path: "./dist/js",
         filename: "bundle.js"
+    },*/
+    //多入口配置
+    entry: {
+        index : getEntrySources([path.resolve(__dirname, './src/index.js')]),
+    },
+    output: {
+        publicPath: "http://localhost:9090/dist/",
+        path: "./dist/js",
+        filename: "[name].js"
     },
     devServer:{//本地测试服务器配置
         contentBase: 'src', //静态资源的目录
         devtool: 'source-map',
         hot: true, //自动刷新
         inline: true,    
-        port: 9090        
+        port: 9090
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
@@ -71,7 +83,9 @@ module.exports = {
             compress: {
                 warnings: false
             }
-        })
+        }),
+        //多入口配置，用于优化提取出公共内容
+        commonsPlugin
     ]
 };
 

@@ -81,6 +81,6 @@ npm run build
 │   ├── js
 │   ├── images
 │   ├── fonts
-│   └── entry.js             // webpack入口文件
+│   └── index.js             // webpack,首页入口文件
 .
 </pre>
