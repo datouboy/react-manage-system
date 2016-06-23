@@ -4,7 +4,7 @@ import React from "react";
 topNavListArray = (function getUrl(topNavList){
 	for(var i = 0; i <= topNavList.length-1; i++){
 		var topNavData = topNavList[i];
-		topNavData.fullUrl = "./url/" + topNavData.url;
+		topNavData.fullUrl = shopInfo.siteUrl + topNavData.url;
 		topNavListArray[i] = topNavData;
 	}
 	return topNavListArray;

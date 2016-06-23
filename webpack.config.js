@@ -14,6 +14,7 @@ module.exports = {
     //多入口配置
     entry: {
         index : getEntrySources([path.resolve(__dirname, './src/index.js')]),
+        smsMarketing : getEntrySources([path.resolve(__dirname, './src/smsMarketing.js')])
     },
     output: {
         publicPath: "http://localhost:9090/dist/",

@@ -1,0 +1,33 @@
+@blue: #0190d4;
+@iconGray : #555;
+@orangr : #f60;
+@fontYellow : #f90;
+@fontBlueGray : #506470;
+
+:global {
+	.breadcrumb {
+		background: #efefef;
+		height: 30px;
+		line-height: 30px;
+		border-bottom: 1px solid #d7d7d7;
+		padding: 0 40px;
+		position: relative;
+
+		&::before{
+			display: block;
+			width: 10px;
+			height: 10px;
+			line-height: 10px;
+			text-align: center;
+			font-family: "dakecrm";
+			content: "\e615";
+			position: absolute;
+			left: 20px;
+			top: 10px;
+			color: @blue;
+		}
+	}
+	.contentBox {
+		margin: 20px;
+	}
+}
