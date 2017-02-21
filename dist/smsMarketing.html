@@ -9,7 +9,7 @@
 <body>
 <script type="text/javascript">
 var shopInfo = {
-	"siteUrl" : "http://www.dakecrm.com",
+	"siteUrl" : "http://localhost:9090/",
 	"shopName" : "小资生活",
 	"systemModel" : "标准版",
 	"smsBalance" : 300,
@@ -51,6 +51,16 @@ var shopInfo = {
 			"type" : "qq",
 			"num" : "41970128",
 		}
+	],
+	"breadcrumb" : [
+		{
+			"title" : "自动营销",
+			"url" : "smsMarketing.html"
+		},
+		{
+			"title" : "短信营销",
+			"url" : "smsMarketing.html"
+		}
 	]
 }
 var messageArray = [
@@ -83,7 +93,7 @@ var topNavListArray = [
 	{
 		"className" : "marketing",
 		"name" : "自动营销",
-		"url" : "marketing",
+		"url" : "smsMarketing.html",
 		"onThis" : false
 	},
 	{
@@ -180,95 +190,6 @@ var leftNavListArray = [
 		]
 	},
 ];
-var indexContent = {
-	flash : [
-		{
-			"img" : "banner_1.jpg",
-			"url" : "http://www.taobao.com"
-		}
-	],
-	rightFlash : [
-		{
-			"img" : "index_right_1.jpg",
-			"url" : "http://www.taobao.com"
-		}
-	],
-	commonFun : [
-		{
-			"title" : "短信营销",
-			"className" : "sendSms",
-			"url" : "http://www.taobao.com",
-			"description" : "短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销"
-		},
-		{
-			"title" : "未付款催付",
-			"className" : "noPayment",
-			"url" : "http://www.taobao.com",
-			"description" : "短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销"
-		},
-		{
-			"title" : "发货提醒",
-			"className" : "sendGoods",
-			"url" : "http://www.taobao.com",
-			"description" : "短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销"
-		},
-		{
-			"title" : "指定号码发送",
-			"className" : "appointNum",
-			"url" : "http://www.taobao.com",
-			"description" : "短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销"
-		},
-		{
-			"title" : "签收提醒",
-			"className" : "sign",
-			"url" : "http://www.taobao.com",
-			"description" : "短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销"
-		},
-		{
-			"title" : "流量报告",
-			"className" : "report",
-			"url" : "http://www.taobao.com",
-			"description" : "短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销短信营销"
-		}
-	],
-	news : [
-		{
-			"title" : "新闻标题",
-			"id" : 123,
-			"type" : "news",//公告news,新功能fun
-			"date" : "2016-06-03",
-			"open" : false
-		},
-		{
-			"title" : "新功能上线",
-			"id" : 123,
-			"type" : "fun",
-			"date" : "2016-06-03",
-			"open" : true
-		},
-		{
-			"title" : "新闻标题很长新闻标题很长新闻标题很长",
-			"id" : 123,
-			"type" : "fun",
-			"date" : "2016-06-03",
-			"open" : false
-		},
-		{
-			"title" : "新闻标题",
-			"id" : 123,
-			"type" : "news",
-			"date" : "2016-06-03",
-			"open" : false
-		},
-		{
-			"title" : "新功能上线",
-			"id" : 123,
-			"type" : "fun",
-			"date" : "2016-06-03",
-			"open" : true
-		}
-	]
-}
 </script>
 <div id="topBar"></div>
 <div id="pageTop"></div>
@@ -278,5 +199,5 @@ var indexContent = {
 </div>
 </body>
 <script src="./js/common.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/smsMarketing.js"></script>
 </html>
